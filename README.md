@@ -2,9 +2,10 @@ mongo-monitor
 =============
 
 ### description
-    mongo monitor for scala ,when mongodb servers downtime,it can send email to the subscribers,<br />
-    hrough the properties.conf file to configure some boot parameters<br />
-    Through the a file to configure some boot parameters<br />
+    mongo monitor for scala ,when mongodb servers downtime,
+    it can send email to the subscribers,
+    hrough the properties.conf file to configure some boot parameters
+    Through the a file to configure some boot parameters
 
 ### configure
     #properties.conf
