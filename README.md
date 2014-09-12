@@ -7,6 +7,10 @@ mongo-monitor
     hrough the properties.conf file to configure some boot parameters
     Through the a file to configure some boot parameters
 
+### prepare
+    scala
+    sbt
+
 ### configure
     #properties.conf
     monitor{
