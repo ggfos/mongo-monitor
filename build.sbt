@@ -8,4 +8,6 @@ libraryDependencies += "com.sun.mail" % "javax.mail" % "1.4.5"
 
 libraryDependencies += "com.typesafe" % "config" % "1.2.1"
 
+libraryDependencies += "commons-httpclient" % "commons-httpclient" % "3.1"
+
 unmanagedBase := baseDirectory.value / "unmanaged_lib"

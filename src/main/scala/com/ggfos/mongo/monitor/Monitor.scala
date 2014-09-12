@@ -4,8 +4,11 @@ import java.util.HashMap
 
 import com.mongodb.Mongo
 import com.mongodb.MongoOptions
+import com.ggfos.dispatch._
+import com.ggfos.util._
+import com.ggfos.common.ConfigProperties
 
-object Monitor extends /*App with*/ MailDispatch with ImplicitCookies with ConfigProperties {
+object Monitor extends DispacherMediator with ImplicitCookies with ConfigProperties {
   var isShutDown = false
   ShutDownAction + {
     isShutDown = true
@@ -29,7 +32,7 @@ object Monitor extends /*App with*/ MailDispatch with ImplicitCookies with Confi
                 if (System.currentTimeMillis - Record.get(s"$recipients~$addr") > Record.waitTime) {
                   if (debug) println(s"$recipients~$addr", e)
                   Record.put(s"$recipients~$addr", System.currentTimeMillis)
-                  send(addr, s"""$e""")
+                  sendNodify(addr, s"""$e""")
                 } else {
                   this.synchronized {
                     this.wait(Record.waitTime)

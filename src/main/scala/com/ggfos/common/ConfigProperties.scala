@@ -1,21 +1,8 @@
-package com.ggfos.mongo.monitor
-
-import com.typesafe.config.ConfigFactory
+package com.ggfos.common
 
 /**
  * Created by primos on 14-9-12.
  */
-trait Confable {
-  val conf = ConfigFactory.load("properties.conf")
-
-  protected def extractStringProperty(path: String) = conf.getString(path)
-
-  protected def extractIntProperty(path: String) = conf.getInt(path)
-
-  protected def extractBooleanProperty(path: String) = conf.getBoolean(path)
-
-  protected def extractStringProperties(path: String) = conf.getString(path).split(",").toList
-}
 
 trait ConfigProperties extends Confable {
 
@@ -38,6 +25,14 @@ trait ConfigProperties extends Confable {
   val password = extractStringProperty("monitor.mail.password")
 
   val mimeType = extractStringProperty("monitor.mail.mimeType")
+
+  val appKey = extractStringProperty("monitor.sms.appkey")
+
+  val appSercret = extractStringProperty("monitor.sms.appsercret")
+
+  val from = extractStringProperty("monitor.sms.from")
+
+  val to = extractStringProperties("monitor.sms.to")
 }
 
 

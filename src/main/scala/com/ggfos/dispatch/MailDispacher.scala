@@ -1,11 +1,12 @@
-package com.ggfos.mongo.monitor
+package com.ggfos.dispatch
 
 import java.util.Date
 import java.util.HashMap
 
 import org.easyutils.mail.MailUtility
+import com.ggfos.common.ConfigProperties
 
-trait MailDispatch extends ConfigProperties {
+object MailDispacher extends ConfigProperties {
   def send(errAddress: String, msg: String) = {
     val from: HashMap[String, String] = new HashMap()
     val content = s"""
