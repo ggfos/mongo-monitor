@@ -6,6 +6,7 @@ mongo monitor for scala ,when mongodb servers downtime,it can send email to the 
 Through the a file to configure some boot parameters
 
 ### configure
+    #properties.conf
     monitor{
         server{
                 interval = 60
