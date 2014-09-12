@@ -6,22 +6,23 @@ mongo monitor for scala ,when mongodb servers downtime,it can send email to the 
 Through the a file to configure some boot parameters
 
 ###configure
-monitor{
-    server{
-            interval = 60
-            debug = true
-            address = 10.0.1.39:30000
-            recipients = "primos@qq.com"
-            db = "test"
-            collection = "test"
-    }
-    mail{
-        host = "smtp.yeah.net"
-        username = "primos@yeah.net"
-        password = "primostest"
-        mimeType = "text/html;charset=GBK"
-    }
-}
+> monitor{
+>     server{
+>             interval = 60
+>             debug = true
+>             address = 10.0.1.39:30000
+>             recipients = "primos@qq.com"
+>             db = "test"
+>             collection = "test"
+>     }
+>     mail{
+>         host = "smtp.yeah.net"
+>         username = "primos@yeah.net"
+>         password = "primostest"
+>         mimeType = "text/html;charset=GBK"
+>     }
+> }
+
 > interval : interval time seconds .eg 100
 
 > debug : output log .eg true
