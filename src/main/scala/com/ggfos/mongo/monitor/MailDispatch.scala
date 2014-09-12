@@ -5,14 +5,8 @@ import java.util.HashMap
 
 import org.easyutils.mail.MailUtility
 
-trait MailDispatch {
-  def send(revName: String, revAddress: String, svrAddress: String, msg: String) = {
-    val host = "smtp.yeah.net"//smtp.yeah.net
-    val username = "admin@yeah.net"
-    val password = "admin"
-    val addresslist = revAddress
-    val mimeType = "text/html;charset=GBK"
-    val subject = "MongoDB监控异常通知"
+trait MailDispatch extends ConfigProperties {
+  def send(errAddress: String, msg: String) = {
     val from: HashMap[String, String] = new HashMap()
     val content = s"""
  <div>
@@ -125,7 +119,7 @@ td {
 							<tr>
 								<td
 									style="font-size: 12px; color: #666666; padding-bottom: 6px;">
-									$revName,您好！</td>
+									Hi Gays</td>
 							</tr>
 						</tbody>
 					</table>
@@ -135,7 +129,7 @@ td {
 							<tr>
 								<td
 									style="font-size: 14px; color: 333333; font-weight: bold; padding-bottom: 15px;">
-									位于<span style="color: #cc0000;">$svrAddress</span>的mongo服务于${
+									位于<span style="color: #cc0000;">$errAddress</span>的mongo服务于${
       new Date()
     }<span style="color: #cc0000;">运行异常</span>，请及时核实并找相关人员处理，详细信息如下：
 								</td>
@@ -154,7 +148,7 @@ td {
 											<tr>
 												<td width="296" height="28" bgcolor="#FFFFFF"
 													style="border: 1px solid #ccc;" align="center">
-													$svrAddress</td>
+													$errAddress</td>
 												<td width="296" height="28" bgcolor="#FFFFFF" align="center"
 													style="border: 1px solid #ccc;">$msg</td>
 											</tr>
@@ -190,7 +184,7 @@ td {
 	</includetail>
 </div>
 """
-    from.put("Fogrid", "admin@yeah.net");
-    MailUtility.send(host, username, password, addresslist, false, content, mimeType, subject, from);
+    from.put("primos", username);
+    MailUtility.send(host, username, password, recipients, debug, content, mimeType, "it's sorry to send email to you", from);
   }
 }
