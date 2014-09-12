@@ -1,9 +1,9 @@
 mongo-monitor
 =============
 
-###description
-mongo monitor for scala ,when mongodb servers downtime,it can send email to the subscribers,hrough the properties.conf file to configure some boot parameters
-Through the a file to configure some boot parameters
+### description
+    mongo monitor for scala ,when mongodb servers downtime,it can send email to the subscribers,hrough the properties.conf file to configure some boot parameters
+    Through the a file to configure some boot parameters
 
 ### configure
     #properties.conf
@@ -24,32 +24,21 @@ Through the a file to configure some boot parameters
         }
     }
 > interval : interval time seconds .eg 100
-
-> debug : output log .eg true
-
-> address : mongos config shard addresses .eg 192.168.1.9:20000
-
-> recipients : the mail recipients .eg primos@qq.com,wangchunlei@gmail.com
-
-> db : mongodb db .eg test
-
-> collection : mongodb collection .eg test
-
-> host : email smtp host
-
-> username : email username
-
-> password : email password
-
-> mimeType : email content mimeType
+  debug : output log .eg true
+  address : mongos config shard addresses .eg 192.168.1.9:20000
+  recipients : the mail recipients .eg primos@qq.com,wangchunlei@gmail.com
+  db : mongodb db .eg test
+  collection : mongodb collection .eg test
+  host : email smtp host
+  username : email username
+  password : email password
+  mimeType : email content mimeType
 
 
-###build
+### build
 > cd mongo-monitor
+  sbt compile pack
 
-> sbt compile pack
-
-###run
+### run
 > cd target/pack/bin
-
-> sh mongo-monitor
+  sh mongo-monitor
